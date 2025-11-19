@@ -40,7 +40,7 @@ function Header({ user, onLoginSuccess }) { // Recibe el usuario autenticado y u
         <Navbar expand="lg" className="mb-4 bg-vino"> {/* CAMBIO D) */}
             <div className="container-fluid">
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-                    <img src="logo_itsoeh.jpg" width="90" height="30" className="d-inline-block align-top me-2" alt="Logo 1" />
+                    <img src="../logo_itsoeh.jpg" width="90" height="30" className="d-inline-block align-top me-2" alt="Logo 1" />
                     <img src="logo_gestion.jpg" width="60" height="60" className="d-inline-block align-top me-2" alt="Logo 2" />
                     Gestión Empresarial
                 </Navbar.Brand>
