@@ -1,6 +1,6 @@
 /* src/index.css */
 
-/* COLORES DEFINITIVOS FINALES (Estética Azul/Petróleo) */
+/* COLORES DEFINITIVOS FINALES (Estética Azul/Petróleo de la Propuesta) */
 :root {
   --color-petroleo-dark: #285B72;
   /* Fondo de Encabezado y Encabezado de Tablas */
@@ -9,7 +9,7 @@
   --color-gris-claro: #F2F2F2;
   /* Para filas impares */
   --color-vino-dark: #470404;
-  /* Para el botón de Cerrar Sesión (Color de contraste) */
+  /* Botón Cerrar Sesión (Rojo/Vino) */
   --color-menta-clara: #A9F3C6;
   /* Color de Contraste Secundario */
   --color-texto-oscuro: #000000;
@@ -29,13 +29,13 @@ body {
   min-height: 100vh;
 }
 
-/* Títulos y texto grande (se ven mejor negros sobre blanco) */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.container {
   color: var(--color-texto-oscuro) !important;
 }
 
@@ -51,66 +51,57 @@ h6 {
   position: relative;
 }
 
-/* Color de texto de Navbar (Blanco/Menta Clara) */
+/* Color de texto de Navbar (Blanco) */
 .navbar-brand,
 .nav-link,
 .navbar-text {
-  color: var(--color-gris-claro) !important;
+  color: var(--color-texto-principal) !important;
   /* Blanco */
 }
 
 .btn-outline-primary {
-  color: rgb(255, 255, 255) !important;
-  border-color: rgb(254, 254, 255) !important;
+  color: var(--color-texto-principal) !important;
+  /* Blanco */
+  border-color: var(--color-texto-principal) !important;
 }
 
 /* ---------------------------------------------------- */
 /* C. DISEÑO DE TABLAS Y TARJETAS */
 /* ---------------------------------------------------- */
 
-/* Tarjetas (Deben usar el color del encabezado #285B72) */
+/* Tarjetas */
 .card {
-  background-color: rgb(180, 180, 180) !important;
-  /* Azul Petróleo Oscuro */
-  color: var(--color-texto-principal) !important;
-  /* Texto Blanco */
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro) !important;
   border: 1px solid var(--color-petroleo-dark) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Títulos de Tarjeta */
 .card-title {
   color: var(--color-petroleo-dark) !important;
-  /* Color de contraste menta */
 }
 
-/* Subtítulos y descripciones (texto legible sobre fondo oscuro de la tarjeta) */
+/* Subtítulos y descripciones */
 .card-subtitle,
 .card-text {
-  color: var(--color-texto-principal) !important;
-}
-
-.card-subtitle,
-.area {
-  color: whitesmoke !important;
+  color: #444 !important;
 }
 
 /* Tablas */
 .table,
 .table-responsive {
   background-color: var(--color-fondo-claro) !important;
-  /* Fondo blanco */
   color: var(--color-texto-oscuro) !important;
-  /* Texto negro */
   border: none;
 }
 
-/* Encabezados de Tabla (Para Tablas de CRUD) */
+/* Encabezados de Tabla */
 .table thead th {
   background-color: var(--color-petroleo-dark) !important;
   /* #285B72 */
   color: var(--color-texto-principal) !important;
-  /* Texto blanco */
+  /* Blanco */
   border-bottom: 2px solid var(--color-menta-clara);
 }
 
@@ -125,35 +116,46 @@ h6 {
   color: var(--color-texto-oscuro);
 }
 
+/* 🚨 CORRECCIÓN CLAVE: MODAL DE LOGIN */
+/* Asegura que el contenido del modal sea blanco y esté encima */
+.modal-content {
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro) !important;
+  border: 1px solid var(--color-petroleo-dark) !important;
+  z-index: 1060 !important;
+}
+
+/* Asegura que los campos de texto del modal sean visibles */
+.modal-body label,
+.modal-header .modal-title {
+  color: var(--color-texto-oscuro) !important;
+}
+
 
 /* ---------------------------------------------------- */
 /* D. BOTONES Y LOGOS */
 /* ---------------------------------------------------- */
 
-/* Botones de Acción Principal (Registrar/Ir a CRUD) */
+/* Botones de Acción Principal */
 .btn-success,
 .btn-primary {
   background-color: var(--color-menta-clara) !important;
   border-color: var(--color-menta-clara) !important;
   color: var(--color-petroleo-dark) !important;
-  /* Texto Petróleo */
   font-weight: bold;
 }
 
-/* Botón de Cerrar Sesión (Rojo o Vino) */
 .btn-danger {
   background-color: var(--color-vino-dark) !important;
-  /* Color Vino/Rojo */
   border-color: var(--color-vino-dark) !important;
-  color: var(--color-gris-claro) !important;
+  color: var(--color-texto-principal) !important;
 }
 
-/* Logros de Fondo (Mantiene la lógica y opacidad) */
+/* Logros de Fondo */
 #main-page-content {
   min-height: 100vh;
-  background-image:
-    url('/src/logo_itsoeh.jpg'),
-    url('/src/logo_gestion.jpg');
+  /* Las rutas deben estar en /public/ */
+  background-image: url('/logo_itsoeh.jpg'), url('/logo_gestion.jpg');
   background-position: 10px 80px, bottom right;
   background-size: 200px, 200px;
   background-repeat: no-repeat;

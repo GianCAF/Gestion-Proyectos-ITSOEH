@@ -1,4 +1,3 @@
-// src/components/Header.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
@@ -12,8 +11,6 @@ function Header({ user, onLoginSuccess }) {
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
 
-    // ... (handleLogin y handleLogout se mantienen sin cambios) ...
-
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoginError('');
@@ -21,7 +18,8 @@ function Header({ user, onLoginSuccess }) {
             await signInWithEmailAndPassword(auth, email, password);
             onLoginSuccess();
             setShowLoginModal(false);
-            navigate('/crud');
+            // 🚨 CORRECCIÓN: ELIMINAR ESTA LÍNEA. Dejamos que App.js redirija automáticamente.
+            // navigate('/crud'); 
         } catch (error) {
             setLoginError('Error de autenticación. Verifica tu correo y contraseña.');
             console.error("Error de login:", error.message);
@@ -42,22 +40,9 @@ function Header({ user, onLoginSuccess }) {
         <Navbar expand="lg" className="mb-4 bg-vino">
             <div className="container-fluid">
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-                    {/* 🚨 CORRECCIÓN CLAVE 1: Ruta absoluta desde la raíz (public/) */}
-                    <img
-                        src="/logo_itsoeh.jpg"
-                        width="90"
-                        height="30"
-                        className="d-inline-block align-top me-2"
-                        alt="Logo ITSOEH"
-                    />
-                    {/* 🚨 CORRECCIÓN CLAVE 2: Ruta absoluta desde la raíz (public/) */}
-                    <img
-                        src="/logo_gestion.jpg"
-                        width="60"
-                        height="60"
-                        className="d-inline-block align-top me-2"
-                        alt="Logo Gestión"
-                    />
+                    {/* Rutas corregidas para Vercel (deben estar en /public/) */}
+                    <img src="/logo_itsoeh.jpg" width="90" height="30" className="d-inline-block align-top me-2" alt="Logo ITSOEH" />
+                    <img src="/logo_gestion.jpg" width="60" height="60" className="d-inline-block align-top me-2" alt="Logo Gestión" />
                     Gestión Empresarial
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -82,9 +67,40 @@ function Header({ user, onLoginSuccess }) {
                 </Navbar.Collapse>
             </div>
 
-            {/* Modal de Login (se mantiene sin cambios) */}
+            {/* Modal de Login */}
             <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)}>
-                {/* ... (código del modal) ... */}
+                <Modal.Header closeButton>
+                    <Modal.Title>Iniciar Sesión</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleLogin}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Correo Electrónico</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Ingresa tu correo"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Contraseña"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
+                        {loginError && <p className="text-danger">{loginError}</p>}
+                        <Button variant="primary" type="submit">
+                            Iniciar Sesión
+                        </Button>
+                    </Form>
+                </Modal.Body>
             </Modal>
         </Navbar>
     );
