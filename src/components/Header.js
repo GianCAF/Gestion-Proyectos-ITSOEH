@@ -18,8 +18,7 @@ function Header({ user, onLoginSuccess }) {
             await signInWithEmailAndPassword(auth, email, password);
             onLoginSuccess();
             setShowLoginModal(false);
-            // 🚨 CORRECCIÓN: ELIMINAR ESTA LÍNEA. Dejamos que App.js redirija automáticamente.
-            // navigate('/crud'); 
+            // La redirección a /crud ocurre automáticamente en App.js
         } catch (error) {
             setLoginError('Error de autenticación. Verifica tu correo y contraseña.');
             console.error("Error de login:", error.message);
@@ -51,11 +50,13 @@ function Header({ user, onLoginSuccess }) {
                         <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <Nav.Link href="https://itsoeh.edu.mx/front/" target="_blank">Página de la Escuela</Nav.Link>
                     </Nav>
-                    <Nav>
+                    <Nav className="ms-auto d-flex align-items-center">
+
                         {user ? (
                             <>
                                 <Navbar.Text className="me-2">Bienvenido, {user.email}</Navbar.Text>
                                 <Button variant="danger" onClick={handleLogout}>Cerrar Sesión</Button>
+                                {/* Muestra Ir al CRUD si el usuario está logueado */}
                                 <Button variant="success" onClick={() => navigate('/crud')} className="ms-2">Ir al CRUD</Button>
                             </>
                         ) : (

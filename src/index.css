@@ -16,6 +16,8 @@
   /* Texto Negro */
   --color-rojo-brillante: #F03B52;
   /* Botones Danger */
+  --color-texto-principal: #FFFFFF;
+  /* Texto Blanco */
 }
 
 /* ---------------------------------------------------- */
@@ -116,13 +118,15 @@ h6,
   color: var(--color-texto-oscuro);
 }
 
-/* 🚨 CORRECCIÓN CLAVE: MODAL DE LOGIN */
-/* Asegura que el contenido del modal sea blanco y esté encima */
+/* 🚨 CORRECCIÓN CLAVE: MODAL DE LOGIN (Asegura Visibilidad) */
 .modal-content {
   background-color: var(--color-fondo-claro) !important;
+  /* Fondo Blanco */
   color: var(--color-texto-oscuro) !important;
+  /* Texto Negro */
   border: 1px solid var(--color-petroleo-dark) !important;
   z-index: 1060 !important;
+  /* Asegura que esté encima del backdrop */
 }
 
 /* Asegura que los campos de texto del modal sean visibles */
@@ -154,8 +158,9 @@ h6,
 /* Logros de Fondo */
 #main-page-content {
   min-height: 100vh;
-  /* Las rutas deben estar en /public/ */
-  background-image: url('/logo_itsoeh.jpg'), url('/logo_gestion.jpg');
+  background-image:
+    url('/logo_itsoeh.jpg'),
+    url('/logo_gestion.jpg');
   background-position: 10px 80px, bottom right;
   background-size: 200px, 200px;
   background-repeat: no-repeat;
