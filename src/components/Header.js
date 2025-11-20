@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
 import { Modal, Button, Form, Navbar, Nav } from 'react-bootstrap';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
@@ -10,7 +10,6 @@ function Header({ user, onLoginSuccess }) {
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
-    const location = useLocation(); // Hook para saber en qué ruta estamos
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -19,7 +18,8 @@ function Header({ user, onLoginSuccess }) {
             await signInWithEmailAndPassword(auth, email, password);
             onLoginSuccess();
             setShowLoginModal(false);
-            // La redirección a /crud ocurre automáticamente en App.js
+            // 🚨 CORRECCIÓN: ELIMINAR ESTA LÍNEA. Dejamos que App.js redirija automáticamente.
+            // navigate('/crud'); 
         } catch (error) {
             setLoginError('Error de autenticación. Verifica tu correo y contraseña.');
             console.error("Error de login:", error.message);
@@ -36,12 +36,6 @@ function Header({ user, onLoginSuccess }) {
         }
     };
 
-    // Determina si estamos en la página principal ( / )
-    const isHomePage = location.pathname === '/';
-    // Determina si estamos en /crud o subrutas de /crud
-    const isCrudPage = location.pathname.startsWith('/crud');
-
-
     return (
         <Navbar expand="lg" className="mb-4 bg-vino">
             <div className="container-fluid">
@@ -57,27 +51,12 @@ function Header({ user, onLoginSuccess }) {
                         <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <Nav.Link href="https://itsoeh.edu.mx/front/" target="_blank">Página de la Escuela</Nav.Link>
                     </Nav>
-                    <Nav className="ms-auto d-flex align-items-center">
-
-                        {/* BOTÓN DE REGRESO A INICIO (Visible si está logueado y no en Home) */}
-                        {user && !isHomePage && (
-                            <Button
-                                variant="outline-primary"
-                                onClick={() => navigate('/')}
-                                className="me-3"
-                            >
-                                🏠 Inicio
-                            </Button>
-                        )}
-
+                    <Nav>
                         {user ? (
                             <>
                                 <Navbar.Text className="me-2">Bienvenido, {user.email}</Navbar.Text>
                                 <Button variant="danger" onClick={handleLogout}>Cerrar Sesión</Button>
-                                {/* Botón Ir al CRUD solo es visible si no estamos ya en la página CRUD */}
-                                {!isCrudPage && (
-                                    <Button variant="success" onClick={() => navigate('/crud')} className="ms-2">Ir al CRUD</Button>
-                                )}
+                                <Button variant="success" onClick={() => navigate('/crud')} className="ms-2">Ir al CRUD</Button>
                             </>
                         ) : (
                             <Button variant="outline-primary" onClick={() => setShowLoginModal(true)}>

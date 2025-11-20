@@ -2,14 +2,20 @@
 
 /* COLORES DEFINITIVOS FINALES (Estética Azul/Petróleo de la Propuesta) */
 :root {
-    --color-petroleo-dark: #285B72;      /* Fondo de Encabezado y Encabezado de Tablas */
-    --color-fondo-claro: #FFFFFF;        /* Fondo Principal (Blanco) */
-    --color-gris-claro: #F2F2F2;         /* Para filas impares */
-    --color-vino-dark: #470404;           /* Botón Cerrar Sesión (Rojo/Vino) */
-    --color-menta-clara: #A9F3C6;         /* Color de Contraste Secundario */
-    --color-texto-oscuro: #000000;        /* Texto Negro */
-    --color-rojo-brillante: #F03B52;      /* Botones Danger */
-    --color-texto-principal: #FFFFFF;     /* Texto Blanco */
+  --color-petroleo-dark: #285B72;
+  /* Fondo de Encabezado y Encabezado de Tablas */
+  --color-fondo-claro: #FFFFFF;
+  /* Fondo Principal (Blanco) */
+  --color-gris-claro: #F2F2F2;
+  /* Para filas impares */
+  --color-vino-dark: #470404;
+  /* Botón Cerrar Sesión (Rojo/Vino) */
+  --color-menta-clara: #A9F3C6;
+  /* Color de Contraste Secundario */
+  --color-texto-oscuro: #000000;
+  /* Texto Negro */
+  --color-rojo-brillante: #F03B52;
+  /* Botones Danger */
 }
 
 /* ---------------------------------------------------- */
@@ -17,13 +23,20 @@
 /* ---------------------------------------------------- */
 
 body {
-    background-color: var(--color-fondo-claro) !important; /* Fondo Blanco */
-    color: var(--color-texto-oscuro) !important; 
-    min-height: 100vh;
+  background-color: var(--color-fondo-claro) !important;
+  /* Fondo Blanco */
+  color: var(--color-texto-oscuro) !important;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, .container {
-    color: var(--color-texto-oscuro) !important; 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.container {
+  color: var(--color-texto-oscuro) !important;
 }
 
 /* ---------------------------------------------------- */
@@ -31,19 +44,25 @@ h1, h2, h3, h4, h5, h6, .container {
 /* ---------------------------------------------------- */
 
 .navbar {
-    background-color: var(--color-petroleo-dark) !important; /* Azul Petróleo Oscuro */
-    border-bottom: 3px solid var(--color-petroleo-dark); 
-    z-index: 100;
-    position: relative;
+  background-color: var(--color-petroleo-dark) !important;
+  /* Azul Petróleo Oscuro */
+  border-bottom: 3px solid var(--color-petroleo-dark);
+  z-index: 100;
+  position: relative;
 }
 
 /* Color de texto de Navbar (Blanco) */
-.navbar-brand, .nav-link, .navbar-text {
-    color: var(--color-texto-principal) !important; /* Blanco */
+.navbar-brand,
+.nav-link,
+.navbar-text {
+  color: var(--color-texto-principal) !important;
+  /* Blanco */
 }
+
 .btn-outline-primary {
-    color: var(--color-texto-principal) !important; /* Blanco */
-    border-color: var(--color-texto-principal) !important;
+  color: var(--color-texto-principal) !important;
+  /* Blanco */
+  border-color: var(--color-texto-principal) !important;
 }
 
 /* ---------------------------------------------------- */
@@ -52,57 +71,64 @@ h1, h2, h3, h4, h5, h6, .container {
 
 /* Tarjetas */
 .card {
-    background-color: var(--color-fondo-claro) !important; 
-    color: var(--color-texto-oscuro) !important; 
-    border: 1px solid var(--color-petroleo-dark) !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro) !important;
+  border: 1px solid var(--color-petroleo-dark) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Títulos de Tarjeta */
 .card-title {
-    color: var(--color-petroleo-dark) !important; 
+  color: var(--color-petroleo-dark) !important;
 }
+
 /* Subtítulos y descripciones */
-.card-subtitle, .card-text {
-    color: #444 !important; 
+.card-subtitle,
+.card-text {
+  color: #444 !important;
 }
 
 /* Tablas */
-.table, .table-responsive {
-    background-color: var(--color-fondo-claro) !important;
-    color: var(--color-texto-oscuro) !important;
-    border: none;
+.table,
+.table-responsive {
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro) !important;
+  border: none;
 }
 
 /* Encabezados de Tabla */
 .table thead th {
-    background-color: var(--color-petroleo-dark) !important; /* #285B72 */
-    color: var(--color-texto-principal) !important; /* Blanco */
-    border-bottom: 2px solid var(--color-menta-clara);
+  background-color: var(--color-petroleo-dark) !important;
+  /* #285B72 */
+  color: var(--color-texto-principal) !important;
+  /* Blanco */
+  border-bottom: 2px solid var(--color-menta-clara);
 }
 
 /* Filas Rayadas */
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: var(--color-gris-claro) !important; 
-    color: var(--color-texto-oscuro);
-}
-.table-striped > tbody > tr:nth-of-type(even) {
-    background-color: var(--color-fondo-claro) !important;
-    color: var(--color-texto-oscuro);
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: var(--color-gris-claro) !important;
+  color: var(--color-texto-oscuro);
 }
 
-/* 🚨 CORRECCIÓN CLAVE: MODAL DE LOGIN (Asegura Visibilidad) */
+.table-striped>tbody>tr:nth-of-type(even) {
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro);
+}
+
+/* 🚨 CORRECCIÓN CLAVE: MODAL DE LOGIN */
+/* Asegura que el contenido del modal sea blanco y esté encima */
 .modal-content {
-    background-color: var(--color-fondo-claro) !important; /* Fondo Blanco */
-    color: var(--color-texto-oscuro) !important; /* Texto Negro */
-    border: 1px solid var(--color-petroleo-dark) !important;
-    z-index: 1060 !important; /* Asegura que esté encima del backdrop */
+  background-color: var(--color-fondo-claro) !important;
+  color: var(--color-texto-oscuro) !important;
+  border: 1px solid var(--color-petroleo-dark) !important;
+  z-index: 1060 !important;
 }
 
 /* Asegura que los campos de texto del modal sean visibles */
 .modal-body label,
 .modal-header .modal-title {
-    color: var(--color-texto-oscuro) !important;
+  color: var(--color-texto-oscuro) !important;
 }
 
 
@@ -111,37 +137,38 @@ h1, h2, h3, h4, h5, h6, .container {
 /* ---------------------------------------------------- */
 
 /* Botones de Acción Principal */
-.btn-success, .btn-primary {
-    background-color: var(--color-menta-clara) !important; 
-    border-color: var(--color-menta-clara) !important;
-    color: var(--color-petroleo-dark) !important; 
-    font-weight: bold;
+.btn-success,
+.btn-primary {
+  background-color: var(--color-menta-clara) !important;
+  border-color: var(--color-menta-clara) !important;
+  color: var(--color-petroleo-dark) !important;
+  font-weight: bold;
 }
+
 .btn-danger {
-    background-color: var(--color-vino-dark) !important; 
-    border-color: var(--color-vino-dark) !important;
-    color: var(--color-texto-principal) !important;
+  background-color: var(--color-vino-dark) !important;
+  border-color: var(--color-vino-dark) !important;
+  color: var(--color-texto-principal) !important;
 }
 
 /* Logros de Fondo */
 #main-page-content {
-    min-height: 100vh; 
-    background-image: 
-        url('/logo_itsoeh.jpg'), 
-        url('/logo_gestion.jpg');
-    background-position: 10px 80px, bottom right;
-    background-size: 200px, 200px; 
-    background-repeat: no-repeat;
-    opacity: 0.15; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; 
+  min-height: 100vh;
+  /* Las rutas deben estar en /public/ */
+  background-image: url('/logo_itsoeh.jpg'), url('/logo_gestion.jpg');
+  background-position: 10px 80px, bottom right;
+  background-size: 200px, 200px;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .page-content-wrapper {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
